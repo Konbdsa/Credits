@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления - Банковская система кредитования</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>Банковская система</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="pages/clients.html">Клиенты</a></li>
+                <li><a href="pages/loans.html">Кредиты</a></li>
+                <li><a href="pages/payments.html">Платежи</a></li>
+                <li><a href="pages/profile.html">Профиль</a></li>
+                <li><a href="#" id="logout">Выйти</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <header>
+                <h1>Панель управления</h1>
+                <div class="user-info">
+                    <span id="username"></span>
+                    <span id="role"></span>
+                </div>
+            </header>
+            <div id="main-content">
+                <!-- Здесь будет динамический контент -->
+                <div class="welcome-message">
+                    <h2>Добро пожаловать в систему!</h2>
+                    <p>Выберите раздел в меню слева для начала работы.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 

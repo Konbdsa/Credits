@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление кредитами</title>
+    <link rel="stylesheet" href="../css/loans.css">
+</head>
+<body>
+    <div class="loans-container">
+        <div class="loans-header">
+            <h2>Управление кредитами</h2>
+            <button id="addLoanBtn" class="btn-primary">Добавить кредит</button>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Поиск кредитов...">
+            <select id="searchType">
+                <option value="client">По клиенту</option>
+                <option value="status">По статусу</option>
+            </select>
+        </div>
+
+        <div class="loans-table-container">
+            <table class="loans-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Клиент</th>
+                        <th>Сумма</th>
+                        <th>Ставка (%)</th>
+                        <th>Срок (мес)</th>
+                        <th>Дата выдачи</th>
+                        <th>Статус</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="loansTableBody">
+                    <!-- Здесь будет динамический контент -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Модальное окно для добавления/редактирования кредита -->
+    <div id="loanModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">Добавление кредита</h3>
+            <form id="loanForm">
+                <input type="hidden" id="loanId">
+                <div class="form-group">
+                    <label for="clientId">ID клиента:</label>
+                    <input type="number" id="clientId" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Сумма:</label>
+                    <input type="number" id="amount" required min="0" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="interestRate">Ставка (%):</label>
+                    <input type="number" id="interestRate" required min="0" max="100" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="termMonths">Срок (мес):</label>
+                    <input type="number" id="termMonths" required min="1">
+                </div>
+                <div class="form-group">
+                    <label for="startDate">Дата выдачи:</label>
+                    <input type="date" id="startDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="status">Статус:</label>
+                    <select id="status" required>
+                        <option value="active">Активный</option>
+                        <option value="paid">Погашен</option>
+                        <option value="defaulted">Просрочен</option>
+                        <option value="cancelled">Отменён</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/loans.js"></script>
+</body>
+</html> 

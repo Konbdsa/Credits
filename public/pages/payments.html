@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление платежами</title>
+    <link rel="stylesheet" href="../css/payments.css">
+</head>
+<body>
+    <div class="payments-container">
+        <div class="payments-header">
+            <h2>Управление платежами</h2>
+            <button id="addPaymentBtn" class="btn-primary">Добавить платеж</button>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Поиск платежей...">
+            <select id="searchType">
+                <option value="loan">По кредиту</option>
+                <option value="type">По типу</option>
+            </select>
+        </div>
+
+        <div class="payments-table-container">
+            <table class="payments-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Кредит</th>
+                        <th>Сумма</th>
+                        <th>Дата</th>
+                        <th>Тип</th>
+                        <th>Примечание</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="paymentsTableBody">
+                    <!-- Здесь будет динамический контент -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Модальное окно для добавления/редактирования платежа -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">Добавление платежа</h3>
+            <form id="paymentForm">
+                <input type="hidden" id="paymentId">
+                <div class="form-group">
+                    <label for="loanId">Кредит:</label>
+                    <select id="loanId" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Сумма:</label>
+                    <input type="number" id="amount" required min="0" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="paymentDate">Дата платежа:</label>
+                    <input type="date" id="paymentDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="paymentType">Тип платежа:</label>
+                    <select id="paymentType" required>
+                        <option value="principal">Основной долг</option>
+                        <option value="interest">Проценты</option>
+                        <option value="both">Оба</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Примечание:</label>
+                    <input type="text" id="notes">
+                </div>
+                <button type="submit" class="btn-primary">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/payments.js"></script>
+</body>
+</html> 
